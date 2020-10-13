@@ -1,0 +1,30 @@
+{
+  "name": "test-webpack",
+  "version": "1.0.0",
+  "description": "Learning webpack and git",
+  "main": "index.js",
+  "dependencies": {
+    "webpack-cli": "^4.0.0",
+    "webpack": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atokarevskikh/test-webpack.git"
+  },
+  "keywords": [
+    "git",
+    "webpack",
+    "beginner"
+  ],
+  "author": "Artem Tokarevskikh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/atokarevskikh/test-webpack/issues"
+  },
+  "homepage": "https://github.com/atokarevskikh/test-webpack#readme"
+}
