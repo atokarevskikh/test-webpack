@@ -1,3 +1,3 @@
-import {sayHello as greeting} from './greeting'
+import {sayHello as greetings} from './greetings'
 
-greeting()
+greetings()
