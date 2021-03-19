@@ -1,5 +1,6 @@
 function sayHello(){
-    alert('Привет от Webpack!')
+    let tool = "webpack"
+    alert(`Привет от ${tool}, welcome to ES6!`)
 }
 
 export  {sayHello}
