@@ -24,14 +24,20 @@ module.exports = {
                 test: /\.css$/i,
                 use: [
                     "style-loader", 
-                    {loader: "css-loader"}
+                    {
+                        loader: "css-loader",
+                        options: { importLoaders: 1 }
+                    }
                 ]
             },
             {
                 test: /\.scss$/i,
                 use: [
                     "style-loader", 
-                    {loader: "css-loader"}, 
+                    {
+                        loader: "css-loader",
+                        options: { importLoaders: 1 }
+                    }, 
                     "sass-loader"
                 ],
             }
