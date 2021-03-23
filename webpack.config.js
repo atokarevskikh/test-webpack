@@ -1,8 +1,11 @@
 const path = require("path")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const TerserJSPlugin = require("terser-webpack-plugin")
 
 module.exports = {
     entry: "./src/index.js",
-    mode: "development",
+    mode: "production",
     devtool: "eval-cheap-module-source-map",
     output: {
         filename: "application.js",
@@ -23,7 +26,7 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: [
-                    "style-loader", 
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
                         options: { importLoaders: 1 }
@@ -33,7 +36,7 @@ module.exports = {
             {
                 test: /\.scss$/i,
                 use: [
-                    "style-loader", 
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
                         options: { importLoaders: 1 }
@@ -41,6 +44,17 @@ module.exports = {
                     "sass-loader"
                 ],
             }
+        ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "application.css"
+        })
+    ],
+    optimization: {
+        minimizer: [
+            new TerserJSPlugin({}),
+            new OptimizeCSSAssetsPlugin({})
         ]
     }
 }
