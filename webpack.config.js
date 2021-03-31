@@ -43,6 +43,19 @@ module.exports = {
                     }, 
                     "sass-loader"
                 ],
+            },
+            {
+                test: /\.(png|jpg|gif|svg|woff2?|eot|ttf|otf|wav)$/i,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 8192,
+                            name: "[name].[hash:7].[ext]"
+                        }
+                    },
+                    { loader: "image-webpack-loader" }
+                ]
             }
         ]
     },
