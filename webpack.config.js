@@ -5,7 +5,7 @@ const TerserJSPlugin = require("terser-webpack-plugin")
 
 module.exports = {
     entry: "./src/index.js",
-    mode: "production",
+    mode: "development",
     devtool: "eval-cheap-module-source-map",
     output: {
         filename: "application.js",
@@ -30,7 +30,8 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: { importLoaders: 1 }
-                    }
+                    },
+                    "postcss-loader",
                 ]
             },
             {
@@ -41,8 +42,9 @@ module.exports = {
                         loader: "css-loader",
                         options: { importLoaders: 1 }
                     }, 
+                    "postcss-loader",
                     "sass-loader"
-                ],
+                ]
             },
             {
                 test: /\.(png|jpg|gif|svg|woff2?|eot|ttf|otf|wav)$/i,
