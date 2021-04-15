@@ -2,6 +2,7 @@ const path = require("path")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const TerserJSPlugin = require("terser-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 module.exports = {
     entry: {
@@ -11,7 +12,7 @@ module.exports = {
     mode: "development",
     devtool: "eval-cheap-module-source-map",
     output: {
-        filename: "[name].js",
+        filename: "[name]-[contenthash].js",
         path: path.resolve(__dirname, "build")
     },
     module: {
@@ -65,8 +66,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: "[name].css"
+            filename: "[name]-[contenthash].css"
         })
     ],
     optimization: {
