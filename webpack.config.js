@@ -4,11 +4,14 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const TerserJSPlugin = require("terser-webpack-plugin")
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        application: "./src/index.js",
+        admin: "./src/admin.js"
+    },
     mode: "development",
     devtool: "eval-cheap-module-source-map",
     output: {
-        filename: "application.js",
+        filename: "[name].js",
         path: path.resolve(__dirname, "build")
     },
     module: {
@@ -63,7 +66,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "application.css"
+            filename: "[name].css"
         })
     ],
     optimization: {
