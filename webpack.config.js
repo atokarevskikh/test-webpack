@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
     entry: {
-        application: "./src/index.js"
+        application: "./src/javascripts/index.js"
     },
     mode: "development",
     devtool: "eval-cheap-module-source-map",
@@ -80,6 +80,17 @@ module.exports = {
         minimizer: [
             new TerserJSPlugin({}),
             new OptimizeCSSAssetsPlugin({})
+        ]
+    },
+    resolve: {
+        alias: {
+            CssFolder: path.resolve(__dirname, "src/stylesheets"),
+            ImagesFolder:  path.resolve(__dirname, "src/images"),
+            ScriptsFolder:  path.resolve(__dirname, "src/javascripts")
+        },
+        modules: [
+            path.resolve(__dirname, "src/libs"),
+            "node_modules"
         ]
     }
 }
