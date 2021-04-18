@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const TerserJSPlugin = require("terser-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
     entry: {
@@ -65,6 +66,11 @@ module.exports = {
         ]
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            title: "Webpack and Git for beginners",
+            template: path.resolve(__dirname, "./src/template.html"), 
+            filename: "index.html", 
+        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name]-[contenthash].css"
