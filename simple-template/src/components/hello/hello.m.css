@@ -1,0 +1,20 @@
+.hello {
+    display: flex;
+    min-height: 100vh;
+}
+
+.hello > div {
+    margin: auto;
+    padding: 2em;
+    border: 0.25em solid darkseagreen;
+}
+
+.hello h2 {
+    color: rgb(76, 0, 255);
+    font-size: 2.5em;
+}
+
+.hello p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+}
